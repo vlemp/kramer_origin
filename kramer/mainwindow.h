@@ -27,6 +27,9 @@ public:
     void Changcol(int** a, int** b, int n);
     void lyambda (int** a, int n);
 
+private slots:
+    void on_GenMatrix_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

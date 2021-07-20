@@ -141,3 +141,21 @@ cout << "Found determinant: " << findDet(a, n) << endl; //Вызываем ре�
 clearMemory(a, n); //Освобождаем память, выделенную под исходную матрицу
 }
 
+
+void MainWindow::on_GenMatrix_clicked() //проверка работы таблицы с кнопкой и значениями //lerch start
+{
+//(данные таблицы не совпадают с данными программы, стадия проверки)
+    //ui->tableWidget->setMaximumSize(tableWidget); проверка подгонки таблицы по размерам
+    int k = qrand() % 10;
+    ui->tableWidget->setRowCount(n);
+    ui->tableWidget->setColumnCount(n);
+
+    for(int i=0; i< ui->tableWidget->rowCount(); i++){
+        for(int j=0; j< ui->tableWidget->columnCount(); j++){
+            k = qrand() % 10;
+            QTableWidgetItem *itm = new QTableWidgetItem(tr("%1").arg(k));
+
+            ui->tableWidget->setItem(i,j,itm);
+        }
+    }
+} //lerch finish
