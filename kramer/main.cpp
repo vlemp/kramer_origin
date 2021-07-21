@@ -50,7 +50,7 @@ void MainWindow::on_GetAnswers_clicked()
 {
     ui->roots->setRowCount(1);
     ui->roots->setColumnCount(n);
-    for(int i=0; i< ui->tableWidget->rowCount(); i++){
-
+    for(int i=0; i< ui->roots->columnCount(); i++){
+        int k[i];
     }
 }
