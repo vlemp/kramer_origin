@@ -48,9 +48,15 @@ void MainWindow::on_GenMatrix_clicked() //проверка работы табл
 
 void MainWindow::on_GetAnswers_clicked()
 {
+
+    ToDo();
+    double j;
     ui->roots->setRowCount(1);
     ui->roots->setColumnCount(n);
     for(int i=0; i< ui->roots->columnCount(); i++){
-        int k[i];
+       j = out[i];
+       QTableWidgetItem *itm2 = new QTableWidgetItem(tr("%1").arg(j));
+
+       ui->roots->setItem(i,0,itm2);
     }
 }

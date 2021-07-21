@@ -58,6 +58,8 @@ int MainWindow::findDet(int** a, int n) { //Рекурсивная функци�
 }
 void MainWindow::Changcol(int** a, int** b, int n)
 {
+    float out[n];
+
     int** c = new int*[n];
     for (int i = 0; i < n; i++)
     {
@@ -74,20 +76,19 @@ void MainWindow::Changcol(int** a, int** b, int n)
                 {
                      c[i][j] = b[i][0];
                  }
-
-                 cout << c[i][j] << " ";
-                 //cout << c[i][j] << " ";
              }
-             cout << endl;
-             //cout << endl;
          }
-         cout << "The Root " << k+1 << ": " << (float)findDet(c, n)/findDet(a, n) << endl;
+         out[k] = (float)findDet(c, n)/findDet(a, n);
+
+         cout << "The Root " << k+1 << ": " << out[k] << endl;
          cout << endl;
          //cout << endl;
      }
 
   clearMemory(c, n);
  }
+
+
 
 
 void MainWindow::ToDo() {
