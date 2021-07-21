@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ToDo();
+    //ToDo();
 }
 
 MainWindow::~MainWindow()
@@ -89,38 +89,43 @@ void MainWindow::Changcol(int** a, int** b, int n)
   clearMemory(c, n);
  }
 
-void MainWindow::lyambda (int** a, int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-
-        }
-    }
-}
 
 void MainWindow::ToDo() {
  qsrand(qrand());
- int n = 5;
  cout << "Enter a matrix size: " << endl;
 cout << "n = " << n << endl;
 //cin >> n; //Вводим размерность матрицы
+
 int** a = new int*[n]; //Объявляем двумерный целочисленный динамический массив (матрицу)
+
 for (int i = 0; i < n; i++)
 {
     a[i] = new int[n];
 }
+
 cout << "Enter a matrix: " << endl;
-for (int i = 0; i < n; i++) {
-    for (int j = 0; j < n; j++) {
-        a[i][j] = qrand() % 10; //Вводим элементы матрицы
-        cout << a[i][j] << " ";
-    }
-    cout << endl;
+
+for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений из таблицы в массив
+{
+      for(int j=0; j< ui->tableWidget->columnCount(); j++)
+      {
+           a[i][j] = (ui-> tableWidget->item(i,j)->text()).toInt();
+          cout << a[i][j] << " ";
+      }
+      cout << endl;
 }
 cout << endl;
+//for (int i = 0; i < n; i++) {
+//    for (int j = 0; j < n; j++) {
+//        a[i][j] = qrand() % 10; //Вводим элементы матрицы
+//        cout << a[i][j] << " ";
+//    }
+//    cout << endl;
+//}
+//cout << endl;
+
 int** b = new int*[n]; //Объявляем вектор b
+
 for (int i = 0; i < n; i++)
 {
     b[i] = new int[n];
@@ -140,5 +145,7 @@ Changcol(a, b, n);
 cout << "Found determinant: " << findDet(a, n) << endl; //Вызываем рекурсивную функцию вычисления определителя матрицы
 clearMemory(a, n); //Освобождаем память, выделенную под исходную матрицу
 }
+
+
 
 
