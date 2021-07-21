@@ -23,6 +23,7 @@ void MainWindow::on_GenMatrix_clicked() //проверка работы табл
 //(данные таблицы не совпадают с данными программы, стадия проверки)
     //ui->tableWidget->setMaximumSize(tableWidget); проверка подгонки таблицы по размерам
     int k = qrand() % 10;
+
     ui->tableWidget->setRowCount(n);
     ui->tableWidget->setColumnCount(n);
 
@@ -35,13 +36,13 @@ void MainWindow::on_GenMatrix_clicked() //проверка работы табл
         }
     }
 
-    for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений из таблицы в массив
-    {
-        for(int j=0; j< ui->tableWidget->columnCount(); j++){
+//    for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений из таблицы в массив
+//    {
+//        for(int j=0; j< ui->tableWidget->columnCount(); j++){
 
-            qDebug() << ui-> tableWidget->item(i,j)->text();
-        }
-        qDebug() << endl;
-    }
-
+//            qDebug() << ui-> tableWidget->item(i,j)->text();
+//        }
+//        qDebug() << endl;
+//    }
+ToDo();
 } //lerch finish
