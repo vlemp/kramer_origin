@@ -34,12 +34,12 @@ void MainWindow::on_GenMatrix_clicked() //проверка работы табл
             ui->tableWidget->setItem(i,j,itm);
         }
     }
-    for (int i=0; i< ui->tableWidget->rowCount(); ++i)
+
+    for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений из таблицы в массив
     {
         for(int j=0; j< ui->tableWidget->columnCount(); j++){
 
-            qDebug() << ui-> tableWidget->item(i, 0)->text();
-
+            qDebug() << ui-> tableWidget->item(i,j)->text();
         }
         qDebug() << endl;
     }
