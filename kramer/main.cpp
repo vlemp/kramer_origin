@@ -20,7 +20,6 @@ int main(int argc, char *argv[])
 
 void MainWindow::on_GenMatrix_clicked() //проверка работы таблицы с кнопкой и значениями //lerch start
 {
-//(данные таблицы не совпадают с данными программы, стадия проверки)
     //ui->tableWidget->setMaximumSize(tableWidget); проверка подгонки таблицы по размерам
     int k = qrand() % 10;
 
@@ -33,7 +32,7 @@ void MainWindow::on_GenMatrix_clicked() //проверка работы табл
             QTableWidgetItem *itm = new QTableWidgetItem(tr("%1").arg(k));
 
             ui->tableWidget->setItem(i,j,itm);
-        }
+        }       
     }
 
 //    for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений из таблицы в массив
@@ -44,5 +43,11 @@ void MainWindow::on_GenMatrix_clicked() //проверка работы табл
 //        }
 //        qDebug() << endl;
 //    }
-ToDo();
+
 } //lerch finish
+
+void MainWindow::on_GetAnswers_clicked()
+{
+    ToDo();
+    //ui -> label -> out;
+}

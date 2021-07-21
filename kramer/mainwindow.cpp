@@ -58,6 +58,7 @@ int MainWindow::findDet(int** a, int n) { //Рекурсивная функци�
 }
 void MainWindow::Changcol(int** a, int** b, int n)
 {
+    float out;
     int** c = new int*[n];
     for (int i = 0; i < n; i++)
     {
@@ -74,14 +75,11 @@ void MainWindow::Changcol(int** a, int** b, int n)
                 {
                      c[i][j] = b[i][0];
                  }
-
-                 cout << c[i][j] << " ";
-                 //cout << c[i][j] << " ";
              }
-             cout << endl;
-             //cout << endl;
          }
-         cout << "The Root " << k+1 << ": " << (float)findDet(c, n)/findDet(a, n) << endl;
+         out = (float)findDet(c, n)/findDet(a, n);
+
+         cout << "The Root " << k+1 << ": " << out << endl;
          cout << endl;
          //cout << endl;
      }
@@ -145,5 +143,7 @@ Changcol(a, b, n);
 cout << "Found determinant: " << findDet(a, n) << endl; //Вызываем рекурсивную функцию вычисления определителя матрицы
 clearMemory(a, n); //Освобождаем память, выделенную под исходную матрицу
 }
+
+
 
 
