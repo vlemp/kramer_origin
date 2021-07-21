@@ -48,5 +48,9 @@ void MainWindow::on_GenMatrix_clicked() //проверка работы табл
 
 void MainWindow::on_GetAnswers_clicked()
 {
+    ui->roots->setRowCount(1);
+    ui->roots->setColumnCount(n);
+    for(int i=0; i< ui->tableWidget->rowCount(); i++){
 
+    }
 }
