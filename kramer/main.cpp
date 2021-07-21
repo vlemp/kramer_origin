@@ -43,7 +43,7 @@ void MainWindow::on_GenMatrix_clicked() //проверка работы табл
 //        }
 //        qDebug() << endl;
 //    }
-ToDo();
+
 } //lerch finish
 
 void MainWindow::on_GetAnswers_clicked()
