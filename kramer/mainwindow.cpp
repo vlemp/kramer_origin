@@ -5,7 +5,6 @@
 #include <QRandomGenerator>
 #include <QTextStream>
 #include <QTableWidget>
-#include <QMessageBox>
 
 QTextStream cout(stdout);
 QTextStream cin(stdin);
@@ -15,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //ToDo();
 }
 
 MainWindow::~MainWindow()
@@ -56,9 +54,19 @@ int MainWindow::findDet(int** a, int n) { //Рекурсивная функци�
         return d; //Возвращаем определитель матрицы
     }
 }
+
+
+void MainWindow::on_GetRoots_clicked()
+{
+    ToDo();
+}
 void MainWindow::Changcol(int** a, int** b, int n)
 {
-    float out;
+    ui->roots->setRowCount(1);
+    ui->roots->setColumnCount(n);
+
+    float out[n];
+
     int** c = new int*[n];
     for (int i = 0; i < n; i++)
     {
@@ -77,18 +85,39 @@ void MainWindow::Changcol(int** a, int** b, int n)
                  }
              }
          }
-         out = (float)findDet(c, n)/findDet(a, n);
+         out[k] = (float)findDet(c, n)/findDet(a, n);
 
-         cout << "The Root " << k+1 << ": " << out << endl;
+         cout << "The Root " << k+1 << ": " << out[k] << endl;
          cout << endl;
+         QTableWidgetItem *itm2 = new QTableWidgetItem(QString::number(out[k]));
+
+         ui->roots->setItem(0,k,itm2);
          //cout << endl;
      }
 
-  clearMemory(c, n);
- }
+    clearMemory(c, n);
+}
 
 
-void MainWindow::ToDo() {
+
+void MainWindow::on_GenMatrix_clicked(){
+    ///////////////////////////////////////////////////////////////////////////////////////////// ввод матрицы
+    int k = qrand() % 10;
+
+    ui->tableWidget->setRowCount(n);
+    ui->tableWidget->setColumnCount(n);
+
+    for(int i=0; i< ui->tableWidget->rowCount(); i++){
+        for(int j=0; j< ui->tableWidget->columnCount(); j++){
+            k = qrand() % 10;
+            QTableWidgetItem *itm = new QTableWidgetItem(tr("%1").arg(k));
+
+            ui->tableWidget->setItem(i,j,itm);
+        }
+    }
+}
+ void MainWindow::ToDo()
+ {
  qsrand(qrand());
  cout << "Enter a matrix size: " << endl;
 cout << "n = " << n << endl;
@@ -102,7 +131,7 @@ for (int i = 0; i < n; i++)
 }
 
 cout << "Enter a matrix: " << endl;
-
+///////////////////////////////////////////////////////////////////////////////////////////////
 for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений из таблицы в массив
 {
       for(int j=0; j< ui->tableWidget->columnCount(); j++)
@@ -113,14 +142,6 @@ for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений 
       cout << endl;
 }
 cout << endl;
-//for (int i = 0; i < n; i++) {
-//    for (int j = 0; j < n; j++) {
-//        a[i][j] = qrand() % 10; //Вводим элементы матрицы
-//        cout << a[i][j] << " ";
-//    }
-//    cout << endl;
-//}
-//cout << endl;
 
 int** b = new int*[n]; //Объявляем вектор b
 

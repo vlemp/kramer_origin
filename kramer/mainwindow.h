@@ -19,7 +19,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    int n = 5;
+    int n = 4;
 
     void clearMemory(int** a, int n);
     void ToDo();
@@ -30,7 +30,7 @@ public:
 private slots:
     void on_GenMatrix_clicked();
 
-    void on_GetAnswers_clicked();
+    void on_GetRoots_clicked(); //(int** a, int** b, int n);
 
 private:
     Ui::MainWindow *ui;
