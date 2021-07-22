@@ -50,7 +50,7 @@
      </font>
     </property>
    </widget>
-   <widget class="QPushButton" name="GetAnswers">
+   <widget class="QPushButton" name="GetRoots">
     <property name="enabled">
      <bool>true</bool>
     </property>

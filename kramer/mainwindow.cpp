@@ -5,7 +5,6 @@
 #include <QRandomGenerator>
 #include <QTextStream>
 #include <QTableWidget>
-#include <QMessageBox>
 
 QTextStream cout(stdout);
 QTextStream cin(stdin);
@@ -15,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //ToDo();
 }
 
 MainWindow::~MainWindow()
@@ -56,8 +54,12 @@ int MainWindow::findDet(int** a, int n) { //Рекурсивная функци�
         return d; //Возвращаем определитель матрицы
     }
 }
-void MainWindow::Changcol(int** a, int** b, int n)
+
+void MainWindow::on_GetRoots_clicked(int** a, int** b, int n)
 {
+    ui->roots->setRowCount(1);
+    ui->roots->setColumnCount(n);
+
     float out[n];
 
     int** c = new int*[n];
@@ -82,16 +84,33 @@ void MainWindow::Changcol(int** a, int** b, int n)
 
          cout << "The Root " << k+1 << ": " << out[k] << endl;
          cout << endl;
+         QTableWidgetItem *itm2 = new QTableWidgetItem(QString::number(out[k]));
+
+         ui->roots->setItem(0,k,itm2);
          //cout << endl;
      }
 
+//    for(int j=0; j< ui->roots->columnCount(); j++){
+
+//    QTableWidgetItem *itm2 = new QTableWidgetItem(QString::number(out[j]));
+
+//    ui->roots->setItem(0,j,itm2);
+//    }
+
   clearMemory(c, n);
- }
 
 
 
+      //  for(int j=0; j< ui->tableWidget->columnCount(); j++){
+      //      QTableWidgetItem *itm2 = new QTableWidgetItem(tr("%1").arg(out[j]));
+      //      ui->roots->setItem(0,j,itm2);
+      //  }
+      //  }
+}
 
-void MainWindow::ToDo() {
+
+void MainWindow::on_GenMatrix_clicked(){
+
  qsrand(qrand());
  cout << "Enter a matrix size: " << endl;
 cout << "n = " << n << endl;
@@ -105,7 +124,21 @@ for (int i = 0; i < n; i++)
 }
 
 cout << "Enter a matrix: " << endl;
+///////////////////////////////////////////////////////////////////////////////////////////// ввод матрицы
+int k = qrand() % 10;
 
+ui->tableWidget->setRowCount(n);
+ui->tableWidget->setColumnCount(n);
+
+for(int i=0; i< ui->tableWidget->rowCount(); i++){
+    for(int j=0; j< ui->tableWidget->columnCount(); j++){
+        k = qrand() % 10;
+        QTableWidgetItem *itm = new QTableWidgetItem(tr("%1").arg(k));
+
+        ui->tableWidget->setItem(i,j,itm);
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
 for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений из таблицы в массив
 {
       for(int j=0; j< ui->tableWidget->columnCount(); j++)
@@ -142,9 +175,11 @@ for (int i = 0; i < n; i++)
     cout << endl;
 }
 cout << endl;
-Changcol(a, b, n);
+//Changcol
+on_GetRoots_clicked(a, b, n);
 cout << "Found determinant: " << findDet(a, n) << endl; //Вызываем рекурсивную функцию вычисления определителя матрицы
 clearMemory(a, n); //Освобождаем память, выделенную под исходную матрицу
+
 }
 
 

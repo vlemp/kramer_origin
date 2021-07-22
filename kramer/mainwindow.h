@@ -22,15 +22,15 @@ public:
     int n = 5;
 
     void clearMemory(int** a, int n);
-    void ToDo();
+    //void ToDo();
     int findDet(int** a, int n);
-    void Changcol(int** a, int** b, int n);
+    //void Changcol(int** a, int** b, int n);
     void lyambda (int** a, int n);
 
 private slots:
     void on_GenMatrix_clicked();
 
-    void on_GetAnswers_clicked();
+    void on_GetRoots_clicked(int** a, int** b, int n);
 
 private:
     Ui::MainWindow *ui;
