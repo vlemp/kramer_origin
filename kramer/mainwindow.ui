@@ -91,6 +91,12 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuKramer">
+    <property name="title">
+     <string>Kramer</string>
+    </property>
+   </widget>
+   <addaction name="menuKramer"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

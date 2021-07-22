@@ -19,7 +19,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    int n = 4;
+    int n = 5;
 
     void clearMemory(int** a, int n);
     void ToDo();
