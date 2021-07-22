@@ -57,10 +57,7 @@ int MainWindow::findDet(int** a, int n) { //Рекурсивная функци�
 }
 
 
-void MainWindow::on_GetRoots_clicked()
-{
-    ToDo();
-}
+
 void MainWindow::Changcol(int** a, int** b, int n)
 {
     ui->roots->setRowCount(1);
@@ -104,23 +101,6 @@ void MainWindow::Changcol(int** a, int** b, int n)
 }
 
 
-
-void MainWindow::on_GenMatrix_clicked(){
-    ///////////////////////////////////////////////////////////////////////////////////////////// ввод матрицы
-    int k = qrand() % 10;
-
-    ui->tableWidget->setRowCount(n);
-    ui->tableWidget->setColumnCount(n+1);
-
-    for(int i=0; i< ui->tableWidget->rowCount(); i++){
-        for(int j=0; j< ui->tableWidget->columnCount(); j++){
-            k = qrand() % 10;
-            QTableWidgetItem *itm = new QTableWidgetItem(tr("%1").arg(k));
-
-            ui->tableWidget->setItem(i,j,itm);
-        }
-    }
-}
  void MainWindow::ToDo()
  {
  qsrand(qrand());
@@ -136,7 +116,7 @@ for (int i = 0; i < n; i++)
 }
 
 cout << "Enter a matrix: " << endl;
-///////////////////////////////////////////////////////////////////////////////////////////////
+
 for (int i=0; i< n/*ui->tableWidget->rowCount()*/; ++i)//вывод значений из таблицы в массив
 {
       for(int j=0; j< n/*ui->tableWidget->columnCount()*/; j++)

@@ -30,8 +30,7 @@ public:
 private slots:
     void on_GenMatrix_clicked();
 
-    void on_GetRoots_clicked(); //(int** a, int** b, int n);
-
+    void on_GetRoots_clicked();
 private:
     Ui::MainWindow *ui;
 };
