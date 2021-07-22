@@ -58,7 +58,6 @@ int MainWindow::findDet(int** a, int n) { //Рекурсивная функци�
 
 
 
-
 void MainWindow::Changcol(int** a, int** b, int n)
 {
     ui->roots->setRowCount(1);
@@ -78,12 +77,16 @@ void MainWindow::Changcol(int** a, int** b, int n)
             for (int j = 0; j < n; j++)
             {
                 c[i][j] = a[i][j];
+
                 if (j == k)
                 {
-                     c[i][j] = b[i][0];
+                     c[i][j] = b[i][n];
                  }
+                cout << c[i][j] << " ";
              }
+            cout << endl;
          }
+        cout << endl;
          out[k] = (float)findDet(c, n)/findDet(a, n);
 
          cout << "The Root " << k+1 << ": " << out[k] << endl;
@@ -96,8 +99,6 @@ void MainWindow::Changcol(int** a, int** b, int n)
 
     clearMemory(c, n);
 }
-
-
 
 
  void MainWindow::ToDo()
@@ -116,9 +117,9 @@ for (int i = 0; i < n; i++)
 
 cout << "Enter a matrix: " << endl;
 
-for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений из таблицы в массив
+for (int i=0; i< n/*ui->tableWidget->rowCount()*/; ++i)//вывод значений из таблицы в массив
 {
-      for(int j=0; j< ui->tableWidget->columnCount(); j++)
+      for(int j=0; j< n/*ui->tableWidget->columnCount()*/; j++)
       {
            a[i][j] = (ui-> tableWidget->item(i,j)->text()).toInt();
           cout << a[i][j] << " ";
@@ -136,11 +137,10 @@ for (int i = 0; i < n; i++)
 cout << "Vector b: " << endl;
 for (int i = 0; i < n; i++)
 {
-    for (int j = 0; j < 1; j++)
+    for (int j = n; j < n + 1; j++)
     {
-        b[i][j] = qrand() % 10;//Вводим вектор B
+        b[i][j] = (ui-> tableWidget->item(i,j)->text()).toInt();//b[i][j] = qrand() % 10;//Вводим вектор B
         cout << b[i][j] << " ";
-
     }
     cout << endl;
 }
