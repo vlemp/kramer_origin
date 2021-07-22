@@ -18,35 +18,25 @@ int main(int argc, char *argv[])
     return a.exec();
 }
 
-void MainWindow::on_GenMatrix_clicked() //проверка работы таблицы с кнопкой и значениями //lerch start
-{
-    //ui->tableWidget->setMaximumSize(tableWidget); проверка подгонки таблицы по размерам
+
+void MainWindow::on_GenMatrix_clicked(){
+
     int k = qrand() % 10;
 
     ui->tableWidget->setRowCount(n);
-    ui->tableWidget->setColumnCount(n);
-
+    ui->tableWidget->setColumnCount(n+1);
+    ui->tableWidget->setHorizontalHeaderLabels(QStringList() <<"1"<<"2"<<"3"<<"4"<<"5"<<"b");
     for(int i=0; i< ui->tableWidget->rowCount(); i++){
         for(int j=0; j< ui->tableWidget->columnCount(); j++){
             k = qrand() % 10;
             QTableWidgetItem *itm = new QTableWidgetItem(tr("%1").arg(k));
 
             ui->tableWidget->setItem(i,j,itm);
-        }       
+        }
     }
-   ToDo();
-//    for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений из таблицы в массив
-//    {
-//        for(int j=0; j< ui->tableWidget->columnCount(); j++){
+}
 
-//            qDebug() << ui-> tableWidget->item(i,j)->text();
-//        }
-//        qDebug() << endl;
-//    }
-
-} //lerch finish
-
-void MainWindow::on_GetAnswers_clicked()
+void MainWindow::on_GetRoots_clicked()
 {
-
+    ToDo();
 }

@@ -30,7 +30,7 @@ public:
 private slots:
     void on_GenMatrix_clicked();
 
-    void on_GetAnswers_clicked();
+    void on_GetRoots_clicked();
 
 private:
     Ui::MainWindow *ui;
