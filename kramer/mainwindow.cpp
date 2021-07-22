@@ -27,6 +27,7 @@ void MainWindow::clearMemory(int** a, int n) {
         }
         delete [] a;
     }
+
 int MainWindow::findDet(int** a, int n) { //Рекурсивная функция вычисления определителя матрицы
     if (n == 1)
         return a[0][0];
@@ -55,7 +56,10 @@ int MainWindow::findDet(int** a, int n) { //Рекурсивная функци�
     }
 }
 
-void MainWindow::on_GetRoots_clicked(int** a, int** b, int n)
+
+
+
+void MainWindow::Changcol(int** a, int** b, int n)
 {
     ui->roots->setRowCount(1);
     ui->roots->setColumnCount(n);
@@ -90,27 +94,14 @@ void MainWindow::on_GetRoots_clicked(int** a, int** b, int n)
          //cout << endl;
      }
 
-//    for(int j=0; j< ui->roots->columnCount(); j++){
-
-//    QTableWidgetItem *itm2 = new QTableWidgetItem(QString::number(out[j]));
-
-//    ui->roots->setItem(0,j,itm2);
-//    }
-
-  clearMemory(c, n);
-
-
-
-      //  for(int j=0; j< ui->tableWidget->columnCount(); j++){
-      //      QTableWidgetItem *itm2 = new QTableWidgetItem(tr("%1").arg(out[j]));
-      //      ui->roots->setItem(0,j,itm2);
-      //  }
-      //  }
+    clearMemory(c, n);
 }
 
 
-void MainWindow::on_GenMatrix_clicked(){
 
+
+ void MainWindow::ToDo()
+ {
  qsrand(qrand());
  cout << "Enter a matrix size: " << endl;
 cout << "n = " << n << endl;
@@ -124,21 +115,7 @@ for (int i = 0; i < n; i++)
 }
 
 cout << "Enter a matrix: " << endl;
-///////////////////////////////////////////////////////////////////////////////////////////// ввод матрицы
-int k = qrand() % 10;
 
-ui->tableWidget->setRowCount(n);
-ui->tableWidget->setColumnCount(n);
-
-for(int i=0; i< ui->tableWidget->rowCount(); i++){
-    for(int j=0; j< ui->tableWidget->columnCount(); j++){
-        k = qrand() % 10;
-        QTableWidgetItem *itm = new QTableWidgetItem(tr("%1").arg(k));
-
-        ui->tableWidget->setItem(i,j,itm);
-    }
-}
-///////////////////////////////////////////////////////////////////////////////////////////////
 for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений из таблицы в массив
 {
       for(int j=0; j< ui->tableWidget->columnCount(); j++)
@@ -149,14 +126,6 @@ for (int i=0; i< ui->tableWidget->rowCount(); ++i)//вывод значений 
       cout << endl;
 }
 cout << endl;
-//for (int i = 0; i < n; i++) {
-//    for (int j = 0; j < n; j++) {
-//        a[i][j] = qrand() % 10; //Вводим элементы матрицы
-//        cout << a[i][j] << " ";
-//    }
-//    cout << endl;
-//}
-//cout << endl;
 
 int** b = new int*[n]; //Объявляем вектор b
 
@@ -171,15 +140,14 @@ for (int i = 0; i < n; i++)
     {
         b[i][j] = qrand() % 10;//Вводим вектор B
         cout << b[i][j] << " ";
+
     }
     cout << endl;
 }
 cout << endl;
-//Changcol
-on_GetRoots_clicked(a, b, n);
+Changcol(a, b, n);
 cout << "Found determinant: " << findDet(a, n) << endl; //Вызываем рекурсивную функцию вычисления определителя матрицы
 clearMemory(a, n); //Освобождаем память, выделенную под исходную матрицу
-
 }
 
 
