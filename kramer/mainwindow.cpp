@@ -27,6 +27,7 @@ void MainWindow::clearMemory(int** a, int n) {
         }
         delete [] a;
     }
+
 int MainWindow::findDet(int** a, int n) { //Рекурсивная функция вычисления определителя матрицы
     if (n == 1)
         return a[0][0];
