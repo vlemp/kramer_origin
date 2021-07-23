@@ -8,7 +8,6 @@
 #include <QRandomGenerator>
 #include <QTextStream>
 #include <QTableWidget>
-#include <QMessageBox>
 
 int main(int argc, char *argv[])
 {
